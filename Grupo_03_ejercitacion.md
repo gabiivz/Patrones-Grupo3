@@ -22,7 +22,7 @@ Combinen 3 o 4 patrones para resolver todo lo siguiente:
 | P10 | Reservar exige verificar disponibilidad, bloquear el asiento, cobrar, emitir el voucher y mandar un mail. La web y la app móvil repiten los cinco pasos. | **Facade** | **¿Por qué?** Dos clientes (web y app) duplican la misma secuencia de llamadas a cinco subsistemas distintos. Una fachada `ServicioReservas.reservar()` esconde los cinco pasos detrás de una sola operación: se elimina la duplicación y, si cambia un paso, se cambia en un solo lugar. **Descartado: State.** State aplica cuando el objeto se comporta distinto según su estado (p. ej., cancelar una reserva pendiente vs. pagada). Acá los cinco pasos son siempre los mismos y en el mismo orden: no hay estados ni transiciones. |
 | T2 (T) | Mostrar 150 minutos como “2 h 30 min”. | **Ninguno** | **¿Por qué?** Es una cuenta simple (`150 // 60 = 2 h`, `150 % 60 = 30 min`). No hay nada que varíe, que se extienda ni subsistemas que esconder. Alcanza con una función utilitaria; meter un patrón agregaría clases sin resolver ningún problema. **Descartado: Strategy.** Solo valdría la pena si hubiera varios formatos intercambiables que el usuario elige (“2 h 30 min”, “02:30”, “150 min”). Con un solo formato no hay estrategias entre las cuales elegir. |
 
-## Escenario C: patrones elegidos
+## Escenario C: Proveedores externos
 
 ### Patrones elegidos
 
